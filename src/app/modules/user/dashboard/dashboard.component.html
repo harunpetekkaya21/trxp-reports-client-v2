@@ -1,0 +1,82 @@
+<div class="grid p-fluid">
+    <!-- Sol Üst: Reservasyon Özeti -->
+    <div class="col-12 lg:col-6">
+      <div class="card equal-height">
+        <h5>Reservasyon Ozeti</h5>
+        <div class="grid">
+          <div class="col-12 sm:col-6">
+            <div class="summary-item">
+              <span class="summary-title">Toplam Rezervasyon</span>
+              <h3>{{ totalReservations | number : '1.0-2' }}</h3>
+            </div>
+          </div>
+          <div class="col-12 sm:col-6">
+            <div class="summary-item">
+              <span class="summary-title">Toplam Satis</span>
+              <h3>{{ totalSalesPrice  | number : '1.0-2' }}</h3>
+            </div>
+          </div>
+          <div class="col-12 sm:col-6">
+            <div class="summary-item">
+              <span class="summary-title">Toplam Net Maliyet</span>
+              <h3>{{ totalNetCostPrice | number : '1.0-2' }}</h3>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+    <!-- Sağ Üst: Reservasyon Özeti Pie Chart -->
+    <div class="col-12 lg:col-6">
+      <div class="card equal-height">
+        <h5>Reservasyon Ozeti </h5>
+        <div class="chart-container">
+          <p-chart type="pie" [data]="reservationPieData" [options]="pieOptions"></p-chart>
+        </div>
+      </div>
+    </div>
+  
+    <!-- Sol Alt: Aylık Satışlar Badge Listesi -->
+    <div class="col-12 lg:col-6">
+        <div class="card equal-height">
+          <h5 class="text-center">Aylik  Ozet</h5>
+          <div class="grid">
+            <div
+              class="col-12 sm:col-6 md:col-4 lg:col-3"
+              *ngFor="let month of monthlySales"
+            >
+              <div class="badge-container">
+                <!-- Ay İsmi -->
+                <p-badge [value]="month.month + '-' + month.year" class="badge-month"></p-badge>
+                
+                <!-- Satış, Maliyet ve Rezervasyon -->
+                <div class="badge-group">
+                
+                  <p-badge
+                    [value]="'Sales ' + (month.totalSalesPrice | number : '1.0-2' )"
+                    class="badge-sales"
+                  ></p-badge>
+                  <p-badge
+                    [value]="'Cost: ' + (month.totalNetCostPrice | number : '1.0-2' )"
+                    class="badge-cost"
+                  ></p-badge>
+                  <!-- <p-badge
+                    [value]="'Rezervasyon: ' + month.totalReservations"
+                    class="badge-reservations"
+                  ></p-badge> -->
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+  
+    <!-- Sağ Alt: Aylık Satışlar Bar Chart -->
+    <div class="col-12 lg:col-6">
+      <div class="card equal-height">
+        <h5>Aylik Ozet</h5>
+        <p-chart type="bar" [data]="barData" [options]="barOptions"></p-chart>
+      </div>
+    </div>
+  </div>
+  
