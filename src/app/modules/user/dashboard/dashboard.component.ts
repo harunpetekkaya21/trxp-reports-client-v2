@@ -1,7 +1,6 @@
 import { CommonModule, NgFor, NgIf, NgStyle } from '@angular/common';
 import { Component, NgModule } from '@angular/core';
 import { VirtualScrollerModule } from 'primeng/virtualscroller';
-
 import { SkeletonModule } from 'primeng/skeleton';
 import { TagModule } from 'primeng/tag';
 import { ChipModule } from 'primeng/chip';

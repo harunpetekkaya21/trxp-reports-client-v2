@@ -13,6 +13,7 @@ import { ProgressSpinnerModule } from 'primeng/progressspinner';
 import { TagModule } from 'primeng/tag';
 import { FileService } from '../../../../../core/services/api/file.service';
 import { FileListDTO } from '../../../../../core/models/file/file-list/FileListDTO';
+import { AccordionModule } from 'primeng/accordion';
 
 export interface FileList {
   name: string,
@@ -27,7 +28,7 @@ export interface FileStatus {
 @Component({
   selector: 'app-juniper-excel',
   standalone: true,
-  imports: [FileUploadModule, ButtonModule, BadgeModule, ProgressBarModule, ToastModule, HttpClientModule, CommonModule, FormsModule, TableModule, TagModule,ProgressSpinnerModule],
+  imports: [AccordionModule,FileUploadModule, ButtonModule, BadgeModule, ProgressBarModule, ToastModule, HttpClientModule, CommonModule, FormsModule, TableModule, TagModule,ProgressSpinnerModule],
   providers: [MessageService],
   templateUrl: './juniper-excel.component.html',
   styleUrl: './juniper-excel.component.scss'
@@ -98,7 +99,7 @@ export class JuniperExcelComponent {
         this.messageService.add({
           severity: 'error',
           summary: 'Error',
-          detail: 'Dosya yüklenirken hata oluştu!',
+          detail: error.message,
         });
       },
       complete: () => {

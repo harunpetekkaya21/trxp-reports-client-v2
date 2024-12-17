@@ -1,7 +1,13 @@
 <div class="spinner-container" *ngIf="loading">
     <p-progressSpinner></p-progressSpinner>
   </div>
+
 <div class="card">
+  <p-accordion [activeIndex]="0">
+    <p-accordionTab header="Juniper Raporuna ait yuklenecek excel formatini icin tiklayiniz !">
+        <img width="100%" src="../../../../../../assets/images/Reports-App-Juniper-Excel-Format.png">
+    </p-accordionTab>
+  </p-accordion>
     <p-toast></p-toast>
     
     <p-fileUpload
