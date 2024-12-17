@@ -22,6 +22,12 @@
               <h3>{{ totalNetCostPrice | number : '1.0-2' }}</h3>
             </div>
           </div>
+          <div class="col-12 sm:col-6">
+            <div class="summary-item">
+              <span class="summary-title">Toplam Net Kar</span>
+              <h3>{{ totalNetCostPrice-totalSalesPrice | number : '1.0-2' }}</h3>
+            </div>
+          </div>
         </div>
       </div>
     </div>
