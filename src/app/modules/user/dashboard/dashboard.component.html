@@ -19,13 +19,13 @@
           <div class="col-12 sm:col-6">
             <div class="summary-item">
               <span class="summary-title">Toplam Net Maliyet</span>
-              <h3>{{ totalNetCostPrice | number : '1.0-2' }}</h3>
+              <h3>{{ totalNetCostPrice | number : '1.0-2' }}€</h3>
             </div>
           </div>
           <div class="col-12 sm:col-6">
             <div class="summary-item">
               <span class="summary-title">Toplam Net Kar</span>
-              <h3>{{ totalNetCostPrice-totalSalesPrice | number : '1.0-2' }}</h3>
+              <h3>{{ totalSalesPrice-totalNetCostPrice | number : '1.0-2' }}€</h3>
             </div>
           </div>
         </div>
@@ -59,13 +59,18 @@
                 <div class="badge-group">
                 
                   <p-badge
-                    [value]="'Sales ' + (month.totalSalesPrice | number : '1.0-2' )"
+                    [value]="'Sales ' + (month.totalSalesPrice | number : '1.0-2' )+ ' €'"
                     class="badge-sales"
                   ></p-badge>
                   <p-badge
-                    [value]="'Cost: ' + (month.totalNetCostPrice | number : '1.0-2' )"
+                    [value]="'Cost: ' + (month.totalNetCostPrice | number : '1.0-2' )+ ' €'"
                     class="badge-cost"
                   ></p-badge>
+
+                  <p-badge
+                  [value]="'Kar: ' + (( month.totalNetCostPrice-month.totalSalesPrice) | number : '1.0-2') + ' €'"
+                  class="badge-cost"
+                ></p-badge>
                   <!-- <p-badge
                     [value]="'Rezervasyon: ' + month.totalReservations"
                     class="badge-reservations"
